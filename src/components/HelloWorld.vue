@@ -91,7 +91,33 @@ export default {
                 "    Observable<BaseResponse<Bean>> "+snsArr[3].replace("/","")+"(@Field(\""+a[0]+"\") "+(a[2].includes('s')?"String":a[2])+" "+a[0]+", \n" +
                 "                                                          @Field(\""+b[0]+"\") "+(b[2].includes('s')?"String":b[2])+" "+b[0]+");";
 
-      }else {
+      }else if (snsArr.length == 12){
+        let a = snsArr[8].trim().split(/\s+/);
+        console.log(a);
+        let b = snsArr[9].trim().split(/\s+/);
+        console.log(b);
+        let c = snsArr[10].trim().split(/\s+/);
+        console.log(c);
+        let d = snsArr[11].trim().split(/\s+/);
+        console.log(d);
+
+        this.retrofit_text = "    /** \n " +
+                "     * "+snsArr[1]+" \n " +
+                "     * "+snsArr[8]+" \n " +
+                "     * "+snsArr[9]+" \n " +
+                "     * "+snsArr[10]+" \n " +
+                "     * "+snsArr[11]+" \n " +
+                "     */ \n " +
+                "    @FormUrlEncoded \n "+
+                "    @"+"POST"+"(\""+snsArr[3]+"\") \n " +
+                "    Observable<BaseResponse<Bean>> "+snsArr[3].replace("/","")+"(@Field(\""+a[0]+"\") "+(a[2].includes('s')?"String":a[2])+" "+a[0]+", \n" +
+                "                                                          @Field(\""+b[0]+"\") "+(b[2].includes('s')?"String":b[2])+" "+b[0]+", \n" +
+                "                                                          @Field(\""+c[0]+"\") "+(c[2].includes('s')?"String":c[2])+" "+c[0]+", \n" +
+                "                                                          @Field(\""+d[0]+"\") "+(d[2].includes('s')?"String":d[2])+" "+d[0]+");";
+
+
+
+      } else {
 
         this.retrofit_text = "    /** \n " +
                 "     * "+snsArr[1]+" \n " +
